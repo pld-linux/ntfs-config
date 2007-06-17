@@ -1,20 +1,23 @@
-%define	_pre	RC3
+%define	pre	RC3
 Summary:	A front-end to Enable/disable NTFS write support
+Summary(pl.UTF-8):	Frontend do włączania/wyłączania obsługi zapisu na NTFS
 Name:		ntfs-config
 Version:	1.0
-Release:	0.%{_pre}.1
+Release:	0.%{pre}.1
 License:	GPL
 Group:		Applications/System
-Source0:	http://flomertens.free.fr/ntfs-config/download/source/%{name}-%{version}-%{_pre}.tar.gz
+Source0:	http://flomertens.free.fr/ntfs-config/download/source/%{name}-%{version}-%{pre}.tar.gz
 # Source0-md5:	cce97389f402e1cc325c47952eaec3df
-URL:		http://flomertens.free.fr/ntfs-config
+URL:		http://flomertens.free.fr/ntfs-config/
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	desktop-file-utils
 BuildRequires:	gettext
-BuildRequires:	perl-XML-Parser
-BuildRequires:	python-devel > 2.4
-BuildRequires:	python-pygtk-devel > 2.6
 Buildrequires:	hal-devel
 Buildrequires:	libglade2-devel
-BuildRequires:	desktop-file-utils
+BuildRequires:	perl-XML-Parser
+BuildRequires:	python-devel > 1:2.4
+BuildRequires:	python-pygtk-devel > 2:2.6
 Requires:	ntfs-3g
 #Requires:	usermode
 BuildArch:	noarch
@@ -26,14 +29,21 @@ external and/or internal device with only two click. This will
 configure your system to use the new ntfs-3g driver instead of the
 current read-only kernel one.
 
+%description -l pl.UTF-8
+ntfs-config pozwala włączyć/wyłączyć obsługę zapisu dla zewnętrznego
+i/lub wewnętrznego urządzenia za pomocą tylko dwóch kliknięć.
+Konfiguruje to system do używania nowego sterownika ntfs-3g zamiast
+aktualnego z jądra obsługującego poprawnie tylko odczyt.
+
 %prep
-%setup -q -n %{name}-%{version}-%{_pre}
+%setup -q -n %{name}-%{version}-%{pre}
 
 %build
 %{__aclocal}
 %{__autoconf}
 %{__automake}
-%configure PYTHON=%{_bindir}/python
+%configure \
+	PYTHON=%{_bindir}/python
 %{__make}
 
 %install
