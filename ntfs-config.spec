@@ -19,7 +19,12 @@ BuildRequires:	python-devel > 1:2.4
 BuildRequires:	python-pygtk-devel > 2:2.6
 BuildRequires:	sed >= 4.0
 Requires:	ntfs-3g
-#Requires:	usermode
+Suggests:	blkid
+Suggests:	gnome-mount
+Suggests:	hal
+Suggests:	module-init-tools
+Suggests:	mount
+Suggests:	udev-core
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
