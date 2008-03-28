@@ -1,13 +1,12 @@
-%define	pre	RC3
 Summary:	A front-end to Enable/disable NTFS write support
 Summary(pl.UTF-8):	Frontend do włączania/wyłączania obsługi zapisu na NTFS
 Name:		ntfs-config
-Version:	1.0
-Release:	0.%{pre}.1
+Version:	1.0.1
+Release:	0.1
 License:	GPL
 Group:		Applications/System
-Source0:	http://flomertens.free.fr/ntfs-config/download/source/%{name}-%{version}-%{pre}.tar.gz
-# Source0-md5:	cce97389f402e1cc325c47952eaec3df
+Source0:	http://flomertens.free.fr/ntfs-config/download/source/%{name}-%{version}.tar.gz
+# Source0-md5:	d491c8129aa9dad4de28b2b0b2b8f309
 URL:		http://flomertens.free.fr/ntfs-config/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -36,7 +35,7 @@ Konfiguruje to system do używania nowego sterownika ntfs-3g zamiast
 aktualnego z jądra obsługującego poprawnie tylko odczyt.
 
 %prep
-%setup -q -n %{name}-%{version}-%{pre}
+%setup -q
 
 %build
 %{__aclocal}
