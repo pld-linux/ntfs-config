@@ -17,6 +17,7 @@ Buildrequires:	libglade2-devel
 BuildRequires:	perl-XML-Parser
 BuildRequires:	python-devel > 1:2.4
 BuildRequires:	python-pygtk-devel > 2:2.6
+BuildRequires:	sed >= 4.0
 Requires:	ntfs-3g
 #Requires:	usermode
 BuildArch:	noarch
@@ -37,6 +38,10 @@ aktualnego z jądra obsługującego poprawnie tylko odczyt.
 %prep
 %setup -q
 
+# there's newer pt.po
+rm -f po/pt_PT.po
+%{__sed} -i s/^pt_PT$// po/LINGUAS
+
 %build
 %{__intltoolize}
 %{__aclocal}
@@ -51,6 +56,7 @@ aktualnego z jądra obsługującego poprawnie tylko odczyt.
 rm -rf $RPM_BUILD_ROOT
 
 %{__make} install \
+	pyexecdir=%{py_sitescriptdir} \
 	DESTDIR=$RPM_BUILD_ROOT \
 	INSTALL="install -p -Dm 644"
 
@@ -75,6 +81,6 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_sbindir}/%{name}-root
 %{_datadir}/%{name}
 %{_desktopdir}/%{name}.desktop
-%{py_sitedir}/NtfsConfig
+%{py_sitescriptdir}/NtfsConfig
 %{_mandir}/man8/ntfs-config-root.8*
 %{_mandir}/man8/ntfs-config.8*
