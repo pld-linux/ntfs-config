@@ -2,7 +2,7 @@ Summary:	A front-end to Enable/disable NTFS write support
 Summary(pl.UTF-8):	Frontend do włączania/wyłączania obsługi zapisu na NTFS
 Name:		ntfs-config
 Version:	1.0.1
-Release:	0.1
+Release:	1
 License:	GPL
 Group:		Applications/System
 Source0:	http://flomertens.free.fr/ntfs-config/download/source/%{name}-%{version}.tar.gz
@@ -38,6 +38,7 @@ aktualnego z jądra obsługującego poprawnie tylko odczyt.
 %setup -q
 
 %build
+%{__intltoolize}
 %{__aclocal}
 %{__autoconf}
 %{__automake}
@@ -78,3 +79,5 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/%{name}
 %{_desktopdir}/%{name}.desktop
 %{py_sitedir}/NtfsConfig
+%{_mandir}/man8/ntfs-config-root.8*
+%{_mandir}/man8/ntfs-config.8*
