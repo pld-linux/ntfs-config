@@ -1,0 +1,11 @@
+--- ntfs-config-1.0.1/data/pam/Makefile.am.orig	2008-03-28 08:12:02.995471041 +0100
++++ ntfs-config-1.0.1/data/pam/Makefile.am	2008-03-28 08:12:08.995058705 +0100
+@@ -10,7 +10,7 @@
+ 	$(INSTALL_DATA) $(srcdir)/ntfs-config.pam $(DESTDIR)/etc/pam.d/ntfs-config-root
+ 	$(INSTALL_DATA) $(srcdir)/ntfs-config.consolhelper $(DESTDIR)/etc/security/console.apps/ntfs-config-root
+ 	test -z $(DESTDIR)$(bindir) || mkdir -p -- $(DESTDIR)$(bindir)
+-	ln -fs $(CONSOLHELPER) $(DESTDIR)$(bindir)/ntfs-config-root
++	ln -fs $(CONSOLEHELPER) $(DESTDIR)$(bindir)/ntfs-config-root
+ 
+ uninstall-hook:
+ 	rm -f $(DESTDIR)/etc/pam.d/ntfs-config-root
