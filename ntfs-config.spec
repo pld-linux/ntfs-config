@@ -43,12 +43,12 @@ aktualnego z jądra obsługującego poprawnie tylko odczyt.
 %{__autoconf}
 %{__automake}
 %configure \
+	--with-force-pam=yes \
 	PYTHON=%{_bindir}/python
 %{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{%{_bindir},/etc/{pam.d,security/console.apps}}
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT \
@@ -60,9 +60,6 @@ desktop-file-install					\
 	--mode 0644					\
 	--remove-category=Application			\
 	$RPM_BUILD_ROOT%{_desktopdir}/%{name}.desktop
-
-install data/pam/ntfs-config.pam $RPM_BUILD_ROOT/etc/pam.d/%{name}-root
-install data/pam/ntfs-config.consolhelper $RPM_BUILD_ROOT/etc/security/console.apps/%{name}-root
 
 %find_lang %{name}
 
