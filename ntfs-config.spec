@@ -20,6 +20,7 @@ BuildRequires:	automake
 BuildRequires:	desktop-file-utils
 BuildRequires:	gettext
 Buildrequires:	hal-devel
+BuildRequires:	intltool
 Buildrequires:	libglade2-devel
 BuildRequires:	perl-XML-Parser
 BuildRequires:	python-devel > 1:2.4
