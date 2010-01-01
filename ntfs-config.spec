@@ -19,9 +19,9 @@ BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	desktop-file-utils
 BuildRequires:	gettext
-Buildrequires:	hal-devel
+BuildRequires:	hal-devel
 BuildRequires:	intltool
-Buildrequires:	libglade2-devel
+BuildRequires:	libglade2-devel
 BuildRequires:	perl-XML-Parser
 BuildRequires:	python-devel > 1:2.4
 BuildRequires:	python-pygtk-devel > 2:2.6
