@@ -18,13 +18,14 @@ URL:		http://flomertens.free.fr/ntfs-config/
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	desktop-file-utils
-BuildRequires:	gettext
+BuildRequires:	gettext-devel
 BuildRequires:	hal-devel
 BuildRequires:	intltool
 BuildRequires:	libglade2-devel
 BuildRequires:	perl-XML-Parser
 BuildRequires:	python-devel > 1:2.4
 BuildRequires:	python-pygtk-devel > 2:2.6
+BuildRequires:	rpm-pythonprov
 BuildRequires:	sed >= 4.0
 Requires:	ntfs-3g
 Requires:	usermode
@@ -64,7 +65,7 @@ rm -f po/pt_PT.po
 %{__automake}
 %configure \
 	--with-force-pam=yes \
-	PYTHON=%{_bindir}/python
+	PYTHON=%{__python}
 %{__make}
 
 %install
