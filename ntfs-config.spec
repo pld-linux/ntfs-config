@@ -18,7 +18,7 @@ URL:		http://flomertens.free.fr/ntfs-config/
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	desktop-file-utils
-BuildRequires:	gettext-devel
+BuildRequires:	gettext-tools
 BuildRequires:	hal-devel
 BuildRequires:	intltool
 BuildRequires:	libglade2-devel
