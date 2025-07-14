@@ -52,7 +52,7 @@ aktualnego z jądra obsługującego poprawnie tylko odczyt.
 
 %prep
 %setup -q
-%patch0 -p1
+%patch -P0 -p1
 
 # there's newer pt.po
 rm -f po/pt_PT.po
